@@ -9,10 +9,18 @@ otp_release:
 before_script:
   - wget https://s3.amazonaws.com/rebar3/rebar3
   - chmod +x rebar3
-script: "./rebar3 update && ./rebar3 ct"
-branches:
-  only:
-    - master
+  - git config --global user.email "core@erlware.org"
+  - git config --global user.name "Travis-CI"
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+script: "./rebar3 update && ./rebar3 ct --suite test/rlx_extended_bin_SUITE --case longname_ping"
+after_script:
+  - test/commit-logs.sh
+  # - test $TRAVIS_OTP_RELEASE = "19.1" \
+  #   && test/commit-logs.sh
+# branches:
+#   only:
+#     - master
 addons:
     hostname: travis.dev 
 notifications:
@@ -23,3 +31,7 @@ notifications:
       - "irc.freenode.org#erlware"
     use_notice: true
     skip_join: true
+env:
+  global:
+  - GH_REF: github.com/lrascao/relx.git
+  - secure: XVjExdd0yZpnpQ2nPXpLfOps9lQmGYniUavBTeGiRwuUZSRQpmnzVWl68vyQ8kCza9HpXBskC5WKAroNjnjBN04QZRYcWQBqG/pkJMggaEl8tkadpLXoQKj1TGTFjMXyCaiEFrtbR414e+vkYDO8VoT/VW2vAP6LgM7vlL7n9aY=
