@@ -88,12 +88,12 @@ ping(Config) ->
                            {config, ConfigFile}], ["release"]),
 
     %% now start/stop the release to make sure the extended script is working
-    {ok, _} = sh(filename:join([OutputDir, "foo", "bin", "foo start"])),
+    {ok, _} = sh(filename:join([OutputDir, "foo", "bin", os_command("foo")++" start"])),
     timer:sleep(2000),
-    {ok, "pong"} = sh(filename:join([OutputDir, "foo", "bin", "foo ping"])),
-    {ok, _} = sh(filename:join([OutputDir, "foo", "bin", "foo stop"])),
+    {ok, "pong"} = sh(filename:join([OutputDir, "foo", "bin", os_command("foo")++" ping"])),
+    {ok, _} = sh(filename:join([OutputDir, "foo", "bin", os_command("foo")++" stop"])),
     %% a ping should fail after stopping a node
-    {error, 1, _} = sh(filename:join([OutputDir, "foo", "bin", "foo ping"])).
+    {error, 1, _} = sh(filename:join([OutputDir, "foo", "bin", os_command("foo")++" ping"])).
 
 attach(Config) ->
     LibDir1 = proplists:get_value(lib1, Config),
@@ -791,6 +791,13 @@ sh_loop(Port, Acc) ->
         {Port, {exit_status, Rc}} ->
             {error, Rc, Acc}
     end.
+
+os_command(Command) ->
+    os_command(os:type(), Command).
+
+os_command({win32, _}, Command) ->
+    Command ++ ".cmd";
+os_command(_, Command) -> Command.
 
 get_cwd() ->
     {ok, Dir} = file:get_cwd(),
