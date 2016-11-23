@@ -1,0 +1,15 @@
+version: 1.0.{build}
+pull_requests:
+  do_not_increment_build_number: true
+branches:
+  only:
+  - feature/appveyor_integration
+install:
+- cmd: curl -O "https://s3.amazonaws.com/rebar3/rebar3"
+build_script:
+- cmd: >-
+    rebar3 update
+
+    rebar3 compile
+test_script:
+- cmd: rebar3 ct
