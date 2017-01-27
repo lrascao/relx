@@ -86,3 +86,5 @@ Wiki
 ----
 
 [relx wiki](https://github.com/erlware/relx/wiki)
+* :x: [#66.1 (OTP 19.1)](http://lrascao.github.io/relx/66.1) [4b7460361e1b0d217adeaf782775841f350e72d5](https://github.com/lrascao/relx/4b7460361e1b0d217adeaf782775841f350e72d5)
+
