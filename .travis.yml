@@ -13,7 +13,7 @@ before_script:
   - git config --global user.name "Travis-CI"
   - git config credential.helper "store --file=.git/credentials"
   - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-script: "./rebar3 update && ./rebar3 ct --suite test/rlx_extended_bin_SUITE --case longname_ping"
+script: "./rebar3 update && ./rebar3 ct --suite test/rlx_extended_bin_SUITE --case replace_os_vars"
 after_script:
   - test/commit-logs.sh
   # - test $TRAVIS_OTP_RELEASE = "19.1" \
