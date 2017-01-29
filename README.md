@@ -90,3 +90,5 @@ Wiki
 
 * :x: [#67.4 (OTP R16B03-1)](http://lrascao.github.io/relx/67.4) [a33cfd163a3a26e5b287a6a4fb82fd171b558c12](https://github.com/lrascao/relx/a33cfd163a3a26e5b287a6a4fb82fd171b558c12)
 
+* :x: [#67.1 (OTP 19.1)](http://lrascao.github.io/relx/67.1) [a33cfd163a3a26e5b287a6a4fb82fd171b558c12](https://github.com/lrascao/relx/a33cfd163a3a26e5b287a6a4fb82fd171b558c12)
+
