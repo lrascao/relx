@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Test rlx_extended_bin_SUITE:replace_os_vars result</title>
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../../ct_default.css" type="text/css">
+<script type="text/javascript" src="../../jquery-latest.js"></script>
+<script type="text/javascript" src="../../jquery.tablesorter.min.js"></script>
+</head>
+<body>
+
+=== <a href="rlx_extended_bin_suite.src.html#replace_os_vars-1">source code for rlx_extended_bin_SUITE:replace_os_vars/1</a>
+
+<pre>
+<a name="top"></a>
+=== Test case started with:
+rlx_extended_bin_SUITE:replace_os_vars([{watchdog,<0.1165.0>},
+                                        {tc_logfile,
+                                         "/home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/rlx_extended_bin_suite.replace_os_vars.html"},
+                                        {tc_group_properties,[]},
+                                        {tc_group_path,[]},
+                                        {data_dir,
+                                         "/home/travis/build/lrascao/relx/_build/test/lib/relx/test/rlx_extended_bin_SUITE_data/"},
+                                        {priv_dir,
+                                         "/home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/"}])
+
+=== Current directory is "/home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07"
+
+=== Started at 2017-01-29 22:32:07
+
+<br />
+[0;32m===> Starting relx build process ...
+[0m
+[0;36m===> state(api):
+          log: (3:debug),
+          config file: /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/rlx_extended_bin_SUITE/lib_dir1_307731/relx.config
+          goals: 
+          output_dir: /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/_rel
+          lib_dirs: 
+          providers: 
+               tar,
+               relup,
+               release,
+               resolve_release,
+               overlay,
+               rel_discover,
+               app_discover,
+          provider config values: 
+               {overlay_vars,[]},
+               {system_libs,true},
+               {default_libs,true},
+[0m
+
+[0;36m===> Running provider app_discover
+[0m
+[0;32m===> Resolving OTP Applications from directories:
+          /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/rlx_extended_bin_SUITE/lib_dir1_307731
+          /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/rlx_extended_bin_SUITE/lib_dir1_307731/goal_app-0.0.1
+          /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/rlx_extended_bin_SUITE/lib_dir1_307731/relx.config
+          /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/rlx_extended_bin_SUITE/lib_dir1_307731/sys.config
+          /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/rlx_extended_bin_SUITE/lib_dir1_307731/vm.args
+          /home/travis/otp/R16B03-1/lib[0m
+
+[0;36m===> Resolved the following OTP Applications from the system: 
+          goal_app-0.0.1: /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/rlx_extended_bin_SUITE/lib_dir1_307731/goal_app-0.0.1
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          goal_app-0.0.1: /home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07/lib.relx.rlx_extended_bin_SUITE.replace_os_vars.logs/run.2017-01-29_22.32.07/log_private/rlx_extended_bin_SUITE/lib_dir1_307731/goal_app-0.0.1
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          webtool-0.8.9.2: /home/travis/otp/R16B03-1/lib/webtool-0.8.9.2
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          cosTransactions-1.2.13: /home/travis/otp/R16B03-1/lib/cosTransactions-1.2.13
+               Symlink: false
+               Active Dependencies:
+                    orber,
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          xmerl-1.3.6: /home/travis/otp/R16B03-1/lib/xmerl-1.3.6
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          et-1.4.4.5: /home/travis/otp/R16B03-1/lib/et-1.4.4.5
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          cosFileTransfer-1.1.15: /home/travis/otp/R16B03-1/lib/cosFileTransfer-1.1.15
+               Symlink: false
+               Active Dependencies:
+                    orber,
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          ic-4.3.4: /home/travis/otp/R16B03-1/lib/ic-4.3.4
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          inets-5.9.8: /home/travis/otp/R16B03-1/lib/inets-5.9.8
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          pman-2.7.1.4: /home/travis/otp/R16B03-1/lib/pman-2.7.1.4
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          stdlib-1.19.4: /home/travis/otp/R16B03-1/lib/stdlib-1.19.4
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+               Library Dependencies:
+
+          cosEventDomain-1.1.13: /home/travis/otp/R16B03-1/lib/cosEventDomain-1.1.13
+               Symlink: false
+               Active Dependencies:
+                    orber,
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          debugger-3.2.12: /home/travis/otp/R16B03-1/lib/debugger-3.2.12
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+                    gs,
+               Library Dependencies:
+
+          erl_docgen-0.3.4.1: /home/travis/otp/R16B03-1/lib/erl_docgen-0.3.4.1
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          cosNotification-1.1.20: /home/travis/otp/R16B03-1/lib/cosNotification-1.1.20
+               Symlink: false
+               Active Dependencies:
+                    orber,
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          percept-0.8.8.2: /home/travis/otp/R16B03-1/lib/percept-0.8.8.2
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          erts-5.10.4: /home/travis/otp/R16B03-1/lib/erts-5.10.4
+               Symlink: false
+               Active Dependencies:
+               Library Dependencies:
+
+          tv-2.1.4.10: /home/travis/otp/R16B03-1/lib/tv-2.1.4.10
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+                    gs,
+               Library Dependencies:
+
+          test_server-3.6.4: /home/travis/otp/R16B03-1/lib/test_server-3.6.4
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          typer-0.9.5: /home/travis/otp/R16B03-1/lib/typer-0.9.5
+               Symlink: false
+               Active Dependencies:
+                    compiler,
+                    dialyzer,
+                    hipe,
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          cosProperty-1.1.16: /home/travis/otp/R16B03-1/lib/cosProperty-1.1.16
+               Symlink: false
+               Active Dependencies:
+                    orber,
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          hipe-3.10.2.2: /home/travis/otp/R16B03-1/lib/hipe-3.10.2.2
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          os_mon-2.2.14: /home/travis/otp/R16B03-1/lib/os_mon-2.2.14
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+                    sasl,
+               Library Dependencies:
+
+          gs-1.5.15.2: /home/travis/otp/R16B03-1/lib/gs-1.5.15.2
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          appmon-2.1.14.2: /home/travis/otp/R16B03-1/lib/appmon-2.1.14.2
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          sasl-2.3.4: /home/travis/otp/R16B03-1/lib/sasl-2.3.4
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          public_key-0.21: /home/travis/otp/R16B03-1/lib/public_key-0.21
+               Symlink: false
+               Active Dependencies:
+                    asn1,
+                    crypto,
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          asn1-2.0.4: /home/travis/otp/R16B03-1/lib/asn1-2.0.4
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          orber-3.6.26.1: /home/travis/otp/R16B03-1/lib/orber-3.6.26.1
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+                    mnesia,
+               Library Dependencies:
+
+          syntax_tools-1.6.13: /home/travis/otp/R16B03-1/lib/syntax_tools-1.6.13
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+               Library Dependencies:
+
+          toolbar-1.4.2.3: /home/travis/otp/R16B03-1/lib/toolbar-1.4.2.3
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+                    gs,
+               Library Dependencies:
+
+          parsetools-2.0.10: /home/travis/otp/R16B03-1/lib/parsetools-2.0.10
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          edoc-0.7.12.1: /home/travis/otp/R16B03-1/lib/edoc-0.7.12.1
+               Symlink: false
+               Active Dependencies:
+                    compiler,
+                    kernel,
+                    stdlib,
+                    syntax_tools,
+               Library Dependencies:
+
+          wx-1.1.2: /home/travis/otp/R16B03-1/lib/wx-1.1.2
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          compiler-4.9.4: /home/travis/otp/R16B03-1/lib/compiler-4.9.4
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          mnesia-4.11: /home/travis/otp/R16B03-1/lib/mnesia-4.11
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          odbc-2.10.19: /home/travis/otp/R16B03-1/lib/odbc-2.10.19
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          snmp-4.25: /home/travis/otp/R16B03-1/lib/snmp-4.25
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          eldap-1.0.2: /home/travis/otp/R16B03-1/lib/eldap-1.0.2
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          dialyzer-2.6.1: /home/travis/otp/R16B03-1/lib/dialyzer-2.6.1
+               Symlink: false
+               Active Dependencies:
+                    compiler,
+                    gs,
+                    hipe,
+                    kernel,
+                    stdlib,
+                    wx,
+               Library Dependencies:
+
+          megaco-3.17.0.2: /home/travis/otp/R16B03-1/lib/megaco-3.17.0.2
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          reltool-0.6.4.1: /home/travis/otp/R16B03-1/lib/reltool-0.6.4.1
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          ssl-5.3.3: /home/travis/otp/R16B03-1/lib/ssl-5.3.3
+               Symlink: false
+               Active Dependencies:
+                    crypto,
+                    public_key,
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          kernel-2.16.4: /home/travis/otp/R16B03-1/lib/kernel-2.16.4
+               Symlink: false
+               Active Dependencies:
+               Library Dependencies:
+
+          crypto-3.2: /home/travis/otp/R16B03-1/lib/crypto-3.2
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          diameter-1.5: /home/travis/otp/R16B03-1/lib/diameter-1.5
+               Symlink: false
+               Active Dependencies:
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          common_test-1.7.4: /home/travis/otp/R16B03-1/lib/common_test-1.7.4
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          observer-1.3.1.2: /home/travis/otp/R16B03-1/lib/observer-1.3.1.2
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          otp_mibs-1.0.8: /home/travis/otp/R16B03-1/lib/otp_mibs-1.0.8
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+                    snmp,
+               Library Dependencies:
+
+          runtime_tools-1.8.13: /home/travis/otp/R16B03-1/lib/runtime_tools-1.8.13
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          eunit-2.2.6: /home/travis/otp/R16B03-1/lib/eunit-2.2.6
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          tools-2.6.13: /home/travis/otp/R16B03-1/lib/tools-2.6.13
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+               Library Dependencies:
+
+          cosTime-1.1.13: /home/travis/otp/R16B03-1/lib/cosTime-1.1.13
+               Symlink: false
+               Active Dependencies:
+                    orber,
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          cosEvent-2.1.14: /home/travis/otp/R16B03-1/lib/cosEvent-2.1.14
+               Symlink: false
+               Active Dependencies:
+                    orber,
+                    stdlib,
+                    kernel,
+               Library Dependencies:
+
+          ssh-3.0: /home/travis/otp/R16B03-1/lib/ssh-3.0
+               Symlink: false
+               Active Dependencies:
+                    kernel,
+                    stdlib,
+                    crypto,
+                    public_key,
+               Library Dependencies:
+
+[0m
+
+[0;36m===> Provider successfully run: app_discover
+[0m
+[0;36m===> Running provider resolve_release
+[0m
+[0;36m===> Solving Release foo-0.0.1
+[0m
+[0;32m===> Resolved foo-0.0.1
+[0m
+[0;36m===> release: foo-0.0.1
+           erts-5.10.4, realized = true
+     goals: 
+          goal_app,
+     applications: 
+          {kernel,"2.16.4"},
+          {stdlib,"1.19.4"},
+          {goal_app,"0.0.1"},
+[0m
+
+[0;36m===> Provider successfully run: resolve_release
+[0m
+[0;36m===> Running provider release
+[0m
+[0;32m===> Including Erts from /home/travis/otp/R16B03-1
+[0m
+[0;32m===> release successfully created!
+[0m
+[0;36m===> Provider successfully run: release
+[0m
+[0;36m===> Running provider overlay
+[0m
+[0;36m===> Provider successfully run: overlay
+[0m
+
+<div class="ct_error_notify"><b>*** CT Error Notification 2017-01-29 22:32:11.155 ***</b>
+rlx_extended_bin_SUITE:replace_os_vars failed on line 445
+Reason: {badmatch,{error,1,"vm.args needs to have either -name or -s...}
+
+<a href="#end">Full error description and stacktrace</a>
+</div>
+<a name="end"></a>
+
+
+=== Ended at 2017-01-29 22:32:11
+=== location [{rlx_extended_bin_SUITE,replace_os_vars,<a href="rlx_extended_bin_suite.src.html#445">445</a>},
+              {test_server,ts_tc,1360},
+              {test_server,run_test_case_eval1,977},
+              {test_server,run_test_case_eval,925}]
+=== reason = no match of right hand side value {error,1,
+                                                    "vm.args needs to have either -name or -sname parameter."}
+  in function  rlx_extended_bin_SUITE:replace_os_vars/1 (/home/travis/build/lrascao/relx/_build/test/lib/relx/test/rlx_extended_bin_SUITE.erl, line 445)
+  in call from test_server:ts_tc/3 (test_server.erl, line 1360)
+  in call from test_server:run_test_case_eval1/6 (test_server.erl, line 977)
+  in call from test_server:run_test_case_eval/9 (test_server.erl, line 925)
+</pre>
+<center>
+<br /><hr /><p>
+<a href="../../../all_runs.html">Test run history
+</a>  |  <a href="../../../index.html">Top level test index
+</a>
+</p>
+<div class="copyright">Copyright &copy; 2017 <a href="http://www.erlang.org">Open Telecom Platform</a><br />
+Updated: <!date>Sun Jan 29 2017 22:32:07<!/date><br />
+</div>
+</center>
+</body>
+</html>

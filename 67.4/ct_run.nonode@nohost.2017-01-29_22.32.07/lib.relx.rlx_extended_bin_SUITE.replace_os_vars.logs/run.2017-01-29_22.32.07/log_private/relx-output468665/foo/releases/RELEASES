@@ -1,0 +1,5 @@
+[{release,"foo","0.0.1","5.10.4",
+          [{kernel,"2.16.4","./lib/kernel-2.16.4"},
+           {stdlib,"1.19.4","./lib/stdlib-1.19.4"},
+           {goal_app,"0.0.1","./lib/goal_app-0.0.1"}],
+          permanent}].

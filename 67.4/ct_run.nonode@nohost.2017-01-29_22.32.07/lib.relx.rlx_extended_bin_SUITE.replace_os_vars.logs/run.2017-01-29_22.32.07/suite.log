@@ -1,0 +1,59 @@
+=== Suite started at 2017-01-29 22:32:07
+=== Starting test, 1 test cases
+=cases         1
+=user          travis
+=host          nohost
+=hosts         nohost 
+=emulator_vsn  5.10.4
+=emulator      beam
+=otp_release   R16B03-1
+=started       2017-01-29 22:32:07
+=case          rlx_extended_bin_SUITE:init_per_suite
+=logfile       rlx_extended_bin_suite.init_per_suite.html
+=started       2017-01-29 22:32:07
+=ended         2017-01-29 22:32:07
+=result        ok
+=elapsed       1.0e-6
+=case          rlx_extended_bin_SUITE:replace_os_vars
+=logfile       rlx_extended_bin_suite.replace_os_vars.html
+=started       2017-01-29 22:32:07
+=ended         2017-01-29 22:32:11
+=result        failed: {{badmatch,
+                            {error,1,
+                                "vm.args needs to have either -name or -sname parameter."}},
+                        [{rlx_extended_bin_SUITE,replace_os_vars,1,
+                             [{file,
+                                  "/home/travis/build/lrascao/relx/_build/test/lib/relx/test/rlx_extended_bin_SUITE.erl"},
+                              {line,445}]},
+                         {test_server,ts_tc,3,
+                             [{file,"test_server.erl"},{line,1360}]},
+                         {test_server,run_test_case_eval1,6,
+                             [{file,"test_server.erl"},{line,977}]},
+                         {test_server,run_test_case_eval,9,
+                             [{file,"test_server.erl"},{line,925}]}]}, [{rlx_extended_bin_SUITE,
+                                                                         replace_os_vars,
+                                                                         445},
+                                                                        {test_server,
+                                                                         ts_tc,
+                                                                         1360},
+                                                                        {test_server,
+                                                                         run_test_case_eval1,
+                                                                         977},
+                                                                        {test_server,
+                                                                         run_test_case_eval,
+                                                                         925}]
+=== *** FAILED test case 1 of 1 ***
+=case          rlx_extended_bin_SUITE:end_per_suite
+=logfile       rlx_extended_bin_suite.end_per_suite.html
+=started       2017-01-29 22:32:11
+=ended         2017-01-29 22:32:11
+=result        ok
+=elapsed       1.0e-6
+=group_time    3.394s
+=== TEST COMPLETE, 0 ok, 1 failed of 1 test cases
+
+=finished      2017-01-29 22:32:11
+=failed        1
+=successful    0
+=user_skipped  0
+=auto_skipped  0

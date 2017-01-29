@@ -1,0 +1,15 @@
+
+Common Test starting (cwd is /home/travis/build/lrascao/relx)
+
+
+
+CWD set to: "/home/travis/build/lrascao/relx/_build/test/logs/ct_run.nonode@nohost.2017-01-29_22.32.07"
+
+TEST INFO: 1 test(s), 1 case(s) in 1 suite(s)
+
+Testing lib.relx.rlx_extended_bin_SUITE.replace_os_vars: Starting test, 1 test cases
+Testing lib.relx.rlx_extended_bin_SUITE.replace_os_vars: *** FAILED test case 1 of 1 ***
+Testing lib.relx.rlx_extended_bin_SUITE.replace_os_vars: TEST COMPLETE, 0 ok, 1 failed of 1 test cases
+
+Updating /home/travis/build/lrascao/relx/_build/test/logs/index.html... done
+Updating /home/travis/build/lrascao/relx/_build/test/logs/all_runs.html... done
