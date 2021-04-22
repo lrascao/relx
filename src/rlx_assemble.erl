@@ -273,7 +273,25 @@ create_release(State0, Release0, OutputDir) ->
     ok = rlx_file_utils:write_term(StartCleanFile, StartCleanMeta),
     ok = rlx_file_utils:write_term(NoDotErlFile, NoDotErlMeta),
     write_bin_file(State1, Release1, OutputDir, ReleaseDir),
-    {ok, State1}.
+    % check for existing start script extensions and append
+    % the overlays necessary for them to be copied over to the
+    % release
+    State2 = apply_extension_overlays(
+                rlx_state:extended_start_script_extensions(State1), State1),
+    {ok, State2}.
+
+apply_extension_overlays([], State) -> State;
+apply_extension_overlays([{Name, ExtensionSrc} | Rest], State) ->
+    ExtensionTarget = extension_default_target(ExtensionSrc),
+    apply_extension_overlays([{Name, ExtensionSrc, ExtensionTarget} | Rest], State);
+apply_extension_overlays([{Name, ExtensionSrc, _ExtensionDescription} | Rest], State) ->
+    ExtensionTarget = extension_default_target(ExtensionSrc),
+    apply_extension_overlays([{Name, ExtensionSrc, ExtensionTarget, _ExtensionDescription} | Rest], State);
+apply_extension_overlays([{_, ExtensionSrc, ExtensionTarget, _} | Rest], State0) ->
+    State1 = rlx_state:overlay(State0,
+                               [{copy, ExtensionSrc, ExtensionTarget} | rlx_state:overlay(State0)]),
+    % create the overlay instruction that will copy the extension script to it's release location
+    apply_extension_overlays(Rest, State1).
 
 write_bin_file(State, Release, OutputDir, RelDir) ->
     BinDir = filename:join([OutputDir, "bin"]),
@@ -966,6 +984,33 @@ bin_file_contents(Type, RelName, RelVsn, ErtsVsn) ->
     render(Template, [{rel_name, RelName}, {rel_vsn, RelVsn},
                       {erts_vsn, ErtsVsn}]).
 
+extension_default_target(Src) ->
+    filename:join("bin/extensions", filename:basename(Src)).
+
+extension_default_description(Name) ->
+    atom_to_list(Name) ++ " description".
+
+extensions(Extensions) ->
+    extensions(Extensions, {[], []}).
+
+extensions([], {ExtensionsList0, ExtensionDeclarations0}) ->
+    % pipe separated string of extensions
+    % (eg. foo|bar|baz|undefined)
+    ExtensionsList = rlx_string:join(ExtensionsList0 ++ ["undefined"], "|"),
+    % command separated string of extension script declarations
+    % (eg. foo_extension="path/to/foo_script:bar_extension="path/to/bar_script")
+    ExtensionDeclarations = rlx_string:join(ExtensionDeclarations0, ";"),
+    {ExtensionsList, ExtensionDeclarations};
+extensions([{Name, Src} | Rest], Acc) ->
+    extensions([{Name, Src, extension_default_target(Src), extension_default_description(Name)} | Rest], Acc);
+extensions([{Name, Src, Description} | Rest], Acc) ->
+    extensions([{Name, Src, extension_default_target(Src), Description} | Rest], Acc);
+extensions([{Name, _Src, Target, _Description} | Rest],
+           {Acc0, Acc1}) ->
+    % eg. bar_extension=bin/extensions/bar
+    ExtensionDeclaration = atom_to_list(Name) ++ "_extension=\"" ++ Target ++ "\"",
+    extensions(Rest, {[atom_to_list(Name) | Acc0], [ExtensionDeclaration | Acc1]}).
+
 extended_bin_file_contents(Type, RelName, RelVsn, ErtsVsn, Hooks, Extensions) ->
     Template = case Type of
                    unix -> extended_bin;
@@ -982,21 +1027,7 @@ extended_bin_file_contents(Type, RelName, RelVsn, ErtsVsn, Hooks, Extensions) ->
     PostInstallUpgradeHooks = rlx_string:join(proplists:get_value(post_install_upgrade,
                                                  Hooks, []), " "),
     StatusHook = rlx_string:join(proplists:get_value(status, Hooks, []), " "),
-    {ExtensionsList1, ExtensionDeclarations1} =
-        lists:foldl(fun({Name, Script},
-                        {ExtensionsList0, ExtensionDeclarations0}) ->
-                            ExtensionDeclaration = atom_to_list(Name) ++
-                                                   "_extension=\"" ++
-                                                   Script ++ "\"",
-                            {ExtensionsList0 ++ [atom_to_list(Name)],
-                             ExtensionDeclarations0 ++ [ExtensionDeclaration]}
-                    end, {[], []}, Extensions),
-    % pipe separated string of extensions, to show on the start script usage
-    % (eg. foo|bar)
-    ExtensionsList = rlx_string:join(ExtensionsList1 ++ ["undefined"], "|"),
-    % command separated string of extension script declarations
-    % (eg. foo_extension="path/to/foo_script")
-    ExtensionDeclarations = rlx_string:join(ExtensionDeclarations1, ";"),
+    {ExtensionsList, ExtensionDeclarations} = extensions(Extensions),
     render(Template, [{rel_name, RelName}, {rel_vsn, RelVsn},
                       {erts_vsn, ErtsVsn},
                       {pre_start_hooks, PreStartHooks},

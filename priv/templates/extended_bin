@@ -542,9 +542,9 @@ relx_run_extension() {
     EXTENSION_SCRIPT=$1
     shift
     # all extension script locations are expected to be
-    # relative to the start script location
+    # relative to the release root
     # shellcheck disable=SC1090,SC2240
-    [ -f "$SCRIPT_DIR/$EXTENSION_SCRIPT" ] && . "$SCRIPT_DIR/$EXTENSION_SCRIPT" "$@"
+    [ -f "$RELEASE_ROOT_DIR/$EXTENSION_SCRIPT" ] && . "$RELEASE_ROOT_DIR/$EXTENSION_SCRIPT" "$@"
 }
 
 # given a list of arguments, identify the internal ones
